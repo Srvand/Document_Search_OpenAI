@@ -82,8 +82,12 @@ if (document_store.get_document_count()!=0):
         pipe.add_node(component=node, name="prompt_node", inputs=["Query"])
         response = pipe.run(query=question, documents=candidate_documents)
         output=response["answers"]
-        answer = output[0].answer
-        st.write(answer)
+        # answer = output[0].answer
+        if output:
+            answer = output[0].answer
+            st.write(answer)
+        else:
+            st.write('Please try with another question')
     
 
 
