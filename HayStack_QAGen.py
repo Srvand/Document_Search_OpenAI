@@ -43,7 +43,7 @@ def add_document(document_store, file):
 
     
 # create Streamlit app
-st.title("Contextualized Search for Document Archive using Haystack OpenAIAnswerGenerator")
+st.title("Contextualized Search for Document Archive")
 API_KEY = st.secrets['OPENAI_API_KEY']
 # create file uploader
 uploaded_files = st.file_uploader("Upload Files", accept_multiple_files=True)
@@ -70,7 +70,7 @@ if (document_store.get_document_count()!=0):
         node = OpenAIAnswerGenerator(
                 api_key=API_KEY,
                 model="text-davinci-003",
-                max_tokens=120,
+                max_tokens=150,
                 presence_penalty=0.1,
                 frequency_penalty=0.1,
                 top_k=1,
